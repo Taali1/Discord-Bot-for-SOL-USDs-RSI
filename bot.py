@@ -1,0 +1,2 @@
+import discord
+import asyncio
