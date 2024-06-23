@@ -11,8 +11,15 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
 
 ## Setup
 <ol>
-<li>Enable Docker</li>
-<li>Run this repository directly from Git repository</li>
+  <li>Add bot from this link to your discord server from <a href="https://discord.com/oauth2/authorize?client_id=1254184996164337774&permissions=1126984386608192&integration_type=0&scope=bot">link</a></li>
+  <li>Clone this repository</li>
+  <li>Edit .env file</li>
+    <ul>
+      <li>Add BYBIT API key or replace .env file with provided one</li>
+      <li>Add your channel ID</li>
+    </ul>
+  <li>Enable Docker</li>
+  <li>Run this repository directly from Git repository</li>
 ```sh
 
 
