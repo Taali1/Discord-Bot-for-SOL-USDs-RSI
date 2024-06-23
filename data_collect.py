@@ -13,11 +13,13 @@ def fetch_close_prices(symbol: str = 'SOLUSDT', interval: int = 60, limit: int =
         'interval': interval,
         'limit': limit
     }
-
+    columns = ['Start time (ms)', 'Open', 'High', 'Low', 'Close', 'Volume', 'Turnover']
     response = requests.get(config['BYBIT_API_URL'], params=params)
-    data = pd.DataFrame(response.json()['result'])
 
-    return data['close'].astype(float)
+    df = pd.DataFrame(response.json()['result']['list'], columns = columns)
+    data = df.Close.astype(float)
+
+    return data
 
 # This took me some time to understand. I knew what RSI is but never calculated it
 def calculate_rsi(prices, period: int = 14) -> float:
@@ -27,3 +29,7 @@ def calculate_rsi(prices, period: int = 14) -> float:
     rs = gain / loss
     rsi = 100 - (100 / (1 + rs))
     return rsi
+
+data = fetch_close_prices()
+print(data)
+print(calculate_rsi(data))
