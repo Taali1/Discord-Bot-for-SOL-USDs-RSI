@@ -3,7 +3,7 @@ from discord.ext import tasks
 from data_collect import *
 from dotenv import load_dotenv
 import os
-from bybit_server_time import *
+from delay import get_delay
 
 
 load_dotenv()
@@ -15,7 +15,7 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 
-@tasks.loop(seconds=10)
+@tasks.loop(seconds=3600)
 async def rsi():
     channel = client.get_channel(CHANNEL_ID)
     if channel:
@@ -24,9 +24,10 @@ async def rsi():
 
         if rsi_value:
             print(f'RSI fits and its value is {rsi_value}')
-            channel.send(f'RSI for SOL/USDT is {rsi_value}!')
+            channel.send(f'RSI for SOL/USDT is {rsi_value}!\n')
         else:
             print('RSI doesn\'t fit')
+            channel.send(f'RSI for SOL/USDT is and didnt fit {rsi_value}!\n')
     else:
         print('Channel not found')
 
