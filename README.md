@@ -13,6 +13,11 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
 <ol>
   <li>Add discord bot to your discord server</li>
   <li>Clone this repository</li>
+  
+  ```bash
+  git clone https://github.com/Taali1/Discord-Bot-for-SOL-USDs-RSI.git
+  cd Discord-Bot-for-SOL-USDs-RSI
+  ```
   <li>Edit or replace .env file</li>
     <ul>
       <li>Add BYBIT API key</li>
@@ -20,10 +25,13 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
       <li>Add your channel ID</li>
     </ul>
   <li>Enable Docker</li>
-  <li>Run this repository directly from Git repository</li>
-```sh
-
-
+  <li>Run this commands in this repository</li>
+  
+  ```bash
+  docker build -t discordbot-solusdt-rsi .
+  docker run --env-file .env -p 3000:3000 discordbot-solusdt-rsi
+  ```
+  <li>Bot should be now active on your server and send message if RSI meets conditions</li>
 </ol>
 
 
