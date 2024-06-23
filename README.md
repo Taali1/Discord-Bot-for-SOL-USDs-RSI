@@ -4,11 +4,12 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
 <br/>
 ## Requierments
 <ul>
-<li>discord [2.3.2]</li>
-<li>requests [2.32.3]</li>
-<li>pandas [2.2.2]</li>
+  <li>discord [2.3.2]</li>
+  <li>requests [2.32.3]</li>
+  <li>pandas [2.2.2]</li>
+  <li>python-dotenv [1.0.1]</li>
 </ul>
-
+<br/>
 ## Setup
 <ol>
   <li>Add discord bot to your discord server</li>
