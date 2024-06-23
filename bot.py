@@ -5,11 +5,10 @@ from dotenv import load_dotenv
 import asyncio
 import os
 from delay import get_delay
-import time
 
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
-CHANNEL_ID = os.getenv('CHANNEL_ID')
+CHANNEL_ID = int(os.getenv('CHANNEL_ID'))
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -48,7 +47,7 @@ async def on_ready():
     delay = get_delay()
     print(f'Bot delayed for {delay} seconds, ergo {delay/60} minutes')
     if channel:
-        await channel.send(f'Bot delayed for {delay} seconds, ergo {delay/60} minutes')
+        await channel.send(f'Bot delayed for {delay} seconds, ergo {int(delay/60)} minutes and {delay % 60} seconds')
     await asyncio.sleep(delay)
 
     rsi.start()

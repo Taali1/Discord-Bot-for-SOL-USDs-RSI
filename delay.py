@@ -8,13 +8,13 @@ def get_time() -> int:
     # Get time from response
     time = response['result']['timeSecond']
 
-    return time
+    return int(time)
 
 def get_delay() -> int:
     # returns server time in seconds
     server_time = get_time()
 
     # 3 600 seconds equals to 1 hour ofc
-    delay = server_time % 3600
+    delay = 3601 - (server_time % 3600) # 3601 for assurance
 
     return delay
