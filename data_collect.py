@@ -28,8 +28,4 @@ def calculate_rsi(prices, period: int = 14) -> float:
     loss = ((delta.where(delta < 0, 0))*-1).rolling(window=period).mean()
     rs = gain / loss
     rsi = 100 - (100 / (1 + rs))
-    return rsi
-
-data = fetch_close_prices()
-print(data)
-print(calculate_rsi(data))
+    return rsi.iloc[-1]
