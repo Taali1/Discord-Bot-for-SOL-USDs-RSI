@@ -23,12 +23,12 @@ async def rsi():
         print('Checking rsi...')
         rsi_value = rsi_check()
 
-        if rsi_value:
+        if rsi_value is not None:
             print(f'RSI fits and its value is {rsi_value}')
-            channel.send(f'RSI for SOL/USDT is {rsi_value}!\n')
+            await channel.send(f'RSI for SOL/USDT is {rsi_value}!\n')
         else:
             print('RSI doesn\'t fit')
-            channel.send(f'RSI for SOL/USDT is and didnt fit {rsi_value}!\n')
+            await channel.send(f'RSI for SOL/USDT is and didnt fit {rsi_value}!\n')
     else:
         print('Channel not found')
 
@@ -38,17 +38,20 @@ async def on_ready():
 
     print(f'Logged in as {client.user}')
 
-    # Delays bot so he checks RSI only after candel closes/opens
-    delay = get_delay()
-    await asyncio.sleep(delay / 1000)
-    print(f'Bot delayed for {delay/1000} seconds')
-
     if channel:
         print(f'Bot {client.user} is active now')
-        rsi.start()
+        await channel.send(f'Bot {client.user} is active now')
     else:
         print('Channel not found')
 
+    # Delays bot so he checks RSI only after candel closes/opens
+    delay = get_delay()
+    print(f'Bot delayed for {delay} seconds, ergo {delay/60} minutes')
+    if channel:
+        await channel.send(f'Bot delayed for {delay} seconds, ergo {delay/60} minutes')
+    await asyncio.sleep(delay)
+
+    rsi.start()
 
 if __name__ == '__main__':
     client.run(DISCORD_TOKEN)
