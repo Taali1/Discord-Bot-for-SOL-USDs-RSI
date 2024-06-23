@@ -3,6 +3,8 @@ from discord.ext import tasks
 from data_collect import *
 from dotenv import load_dotenv
 import os
+from bybit_server_time import *
+
 
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
@@ -11,6 +13,7 @@ CHANNEL_ID = os.getenv('CHANNEL_ID')
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
+
 
 @tasks.loop(seconds=10)
 async def rsi():
