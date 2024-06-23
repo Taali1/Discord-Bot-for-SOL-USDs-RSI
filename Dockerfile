@@ -10,5 +10,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV BYBIT-API-KEY=${BYBIT_API_KEY}
 ENV DISCORD_TOKEN=${DISCORD_TOKEN}
 ENV BYBIT_API_URL=${BYBIT-API-URL}
+ENV CHANNEL_ID=${CHANNEL_ID}
 
 CMD ["python", "bot.py"]

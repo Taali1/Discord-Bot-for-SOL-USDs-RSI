@@ -32,7 +32,7 @@ async def on_ready():
     channel = client.get_channel(CHANNEL_ID)
     print(f'Logged in as {client.user}')
     if channel:
-        await channel.send(f'Bot {client.user} is active now')
+        print(f'Bot {client.user} is active now')
         rsi.start()
     else:
         print('Channel not found')
