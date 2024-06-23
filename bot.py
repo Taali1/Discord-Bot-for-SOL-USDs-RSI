@@ -41,6 +41,7 @@ async def on_ready():
     # Delays bot so he checks RSI only after candel closes/opens
     delay = get_delay()
     await asyncio.sleep(delay / 1000)
+    print(f'Bot delayed for {delay/1000} seconds')
 
     if channel:
         print(f'Bot {client.user} is active now')
