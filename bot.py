@@ -1,20 +1,20 @@
 import discord
 from discord.ext import tasks
-import json
 from data_collect import *
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID')
 
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
-@tasks.loop(seconds=3600)
+@tasks.loop(seconds=10)
 async def rsi():
-    channel = client.get_channel(1254198350454984749)
+    channel = client.get_channel(CHANNEL_ID)
     if channel:
         print('Checking rsi...')
         rsi_value = rsi_check()
@@ -29,7 +29,7 @@ async def rsi():
 
 @client.event
 async def on_ready():
-    channel = client.get_channel(1254198350454984749)
+    channel = client.get_channel(CHANNEL_ID)
     print(f'Logged in as {client.user}')
     if channel:
         await channel.send(f'Bot {client.user} is active now')
