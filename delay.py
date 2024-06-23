@@ -10,8 +10,10 @@ def get_time() -> int:
 
     return int(time)
 
-def get_delay(server_time: int) -> int:
-    # 3 600 000 is 1 hour in milliseconds
+def get_delay() -> int:
+    server_time = get_time()
+
+    # 3 600 000 equals to 1 hour in milliseconds
     delay = server_time % 3600000
 
     return delay
