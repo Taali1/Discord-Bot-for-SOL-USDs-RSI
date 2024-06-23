@@ -1,9 +1,12 @@
 import requests
 import json
 import pandas as pd
+from dotenv import load_dotenv
+import os
 
-with open('config.json') as file:
-    config = json.load(file)
+load_dotenv()
+BYBIT_API_KEY  = os.getenv('BYBIT_API_KEY')
+BYBIT_API_URL = os.getenv('BYBIT_API_URL')
 
 # fetchs candlestick chart from BYBIT API and returns its close prices
 def fetch_close_prices(symbol: str = 'SOLUSDT', interval: int = 60, limit: int = 100):
@@ -14,7 +17,7 @@ def fetch_close_prices(symbol: str = 'SOLUSDT', interval: int = 60, limit: int =
         'limit': limit
     }
     columns = ['Start time (ms)', 'Open', 'High', 'Low', 'Close', 'Volume', 'Turnover']
-    response = requests.get(config['BYBIT_API_URL'], params=params)
+    response = requests.get(BYBIT_API_URL, params=params)
 
     df = pd.DataFrame(response.json()['result']['list'], columns = columns)
     data = df.Close.astype(float)

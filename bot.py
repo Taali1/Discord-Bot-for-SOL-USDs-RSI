@@ -2,9 +2,11 @@ import discord
 from discord.ext import tasks
 import json
 from data_collect import *
+from dotenv import load_dotenv
+import os
 
-with open('config.json') as file:
-    config = json.load(file)
+load_dotenv()
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -37,4 +39,4 @@ async def on_ready():
 
 
 if __name__ == '__main__':
-    client.run(config["DISCORD-TOKEN"])
+    client.run(DISCORD_TOKEN)
