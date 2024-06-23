@@ -29,3 +29,14 @@ def calculate_rsi(prices, period: int = 14) -> float:
     rs = gain / loss
     rsi = 100 - (100 / (1 + rs))
     return rsi.iloc[-1]
+
+# fetchs close prices, calculates rsi and returns rsi if it's over 70 or below 30. otherwise returns False
+def rsi_check() -> float:
+    prices = fetch_close_prices('SOLUSDT', 60, 100)
+    rsi = calculate_rsi(prices)
+
+    print(f'RSI: {rsi}')
+
+    if rsi > 70 or rsi < 30:
+        return rsi
+    return None
