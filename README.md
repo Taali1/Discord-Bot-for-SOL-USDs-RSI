@@ -10,6 +10,7 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
   <li>python-dotenv [1.0.1]</li>
 </ul>
 <br/>
+
 ## Setup
 <ol>
   <li>Add discord bot to your discord server</li>
