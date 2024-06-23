@@ -9,6 +9,14 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
 <li>pandas [2.2.2]</li>
 </ul>
 
+## Setup
+<ol>
+<li>Enable Docker</li>
+<li>Run this repository directly from Git repository</li>
+```sh
+
+
+</ol>
 
 
 <br/><br/><br/>
