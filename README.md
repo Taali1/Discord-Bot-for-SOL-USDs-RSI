@@ -28,8 +28,8 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
   <li>Run this commands in this repository</li>
   
   ```bash
-  docker build -t Discord-Bot-for-SOL-USDs-RSI .
-  docker run --env-file .env -p 3000:3000 Discord-Bot-for-SOL-USDs-RSI
+  docker build -t discordbot-solusdt-rsi .
+  docker run --env-file .env -p 3000:3000 discordbot-solusdt-rsi
   ```
   <li>Bot should be now active on your server and send message if RSI meets conditions</li>
 </ol>
