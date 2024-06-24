@@ -14,6 +14,7 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
 ## Setup
 <ol>
   <li>Add discord bot to your discord server</li>
+  <li>Open command prompt by typing <code>cmd</code> in file explorer path section or in windows menu</li>
   <li>Clone this repository</li>
   
   ```bash
