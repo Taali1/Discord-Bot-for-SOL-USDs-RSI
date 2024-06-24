@@ -1,13 +1,14 @@
 # Discord Bot for SOL/USDT RSI
 Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's RSI(14) and alerts when it's value is over 70 or below 30
+I'm using <b>pandas</b> library for technical analysis
 <br/>
 <br/>
 ## Requierments
 <ul>
-  <li>discord [2.3.2]</li>
-  <li>requests [2.32.3]</li>
-  <li>pandas [2.2.2]</li>
-  <li>python-dotenv [1.0.1]</li>
+  <li><b>discord</b> [2.3.2]</li>
+  <li><b>requests</b> [2.32.3]</li>
+  <li><b>pandas</b> [2.2.2]</li>
+  <li><b>python-dotenv</b> [1.0.1]</li>
 </ul>
 <br/>
 
