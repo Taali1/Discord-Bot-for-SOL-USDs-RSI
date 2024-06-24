@@ -38,7 +38,6 @@ I'm using <b>pandas</b> library for technical analysis
   ```bash
   docker build -t discordbot-solusdt-rsi .
   ```
-
   ```bash
   docker run --env-file .env -p 3000:3000 discordbot-solusdt-rsi
   ```
@@ -52,28 +51,24 @@ I'm using <b>pandas</b> library for technical analysis
 <br/>
 If you would like to see logs:
 <ol>
-  <li>
-    In command prompt typr
-    
-    ```bash
-      docker ps
-    ```
+  <li>In command prompt type</li>
+  
+  ```bash
+    docker ps
+  ```
   </li>
     <li>Find container with  <code>discordbot-solusdt-rsi</code> under the IMAGE column</li>
   <li>
-    Type in command prompt 
+    Type in command prompt</li>
     
-    ```bash
-      docker exec -it <name of the container from previous step> bash
-    ```
-  </li>
-  <li>
-    And then type 
+  ```bash
+    docker exec -it <name_of_the_container_from_previous_step> bash
+  ```
+  <li>And then type</li>  
     
-    ```bash
+  ```bash
     cat discord_bot.log
-    ```
-  </li> 
+  ```
   <li>Command prompt now shows full logs of this container</li>
 </ol>
 
