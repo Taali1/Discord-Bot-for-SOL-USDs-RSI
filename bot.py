@@ -44,7 +44,7 @@ async def on_ready():
         print('Channel not found')
 
     # Delays bot so he checks RSI only after candel closes/opens
-    delay = get_delay()
+    delay = await get_delay()
     print(f'Bot delayed for {delay} seconds, ergo {delay/60} minutes')
     if channel:
         await channel.send(f'Bot delayed for {delay} seconds, ergo {int(delay/60)} minutes and {delay % 60} seconds')
