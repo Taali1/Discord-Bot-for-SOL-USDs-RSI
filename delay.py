@@ -1,4 +1,3 @@
-import requests
 import asyncio
 import aiohttp
 
@@ -12,7 +11,6 @@ async def get_time() -> int:
             # Get time from response
             data = await response.json()
             time = data['result']['timeSecond']
-
     return int(time)
 
 async def get_delay() -> int:
