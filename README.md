@@ -3,6 +3,8 @@ Discord bot that's fetchs candlestick chart data by BYBIT's API, calculates it's
 I'm using <b>pandas</b> library for technical analysis
 <br/>
 <br/>
+
+
 ## Requierments
 <ul>
   <li><b>discord</b> [2.3.2]</li>
@@ -42,6 +44,37 @@ I'm using <b>pandas</b> library for technical analysis
   ```
   <li>Bot should be now active on your server and send message if RSI meets conditions</li>
 </ol>
+<br/>
+<br/>
 
+
+## Logs 
+<br/>
+If you would like to see logs:
+<ol>
+  <li>
+    In command prompt typr
+    
+    ```bash
+      docker ps
+    ```
+  </li>
+    <li>Find container with  <code>discordbot-solusdt-rsi</code> under the IMAGE column</li>
+  <li>
+    Type in command prompt 
+    
+    ```bash
+      docker exec -it <name of the container from previous step> bash
+    ```
+  </li>
+  <li>
+    And then type 
+    
+    ```bash
+    cat discord_bot.log
+    ```
+  </li> 
+  <li>Command prompt now shows full logs of this container</li>
+</ol>
 
 <br/><br/><br/>
