@@ -62,9 +62,11 @@ async def on_ready() -> None:
 
     # Starts checking RSI every 1 hour
     log('Bot has stopped waiting')
-    rsi.start()
+    if not rsi.is_running():
+        rsi.start()
 
 if __name__ == '__main__':
     # Initiating Discord bot
-    client.run(DISCORD_TOKEN)
     log('Running a Discord bot client')
+    client.run(DISCORD_TOKEN)
+    
