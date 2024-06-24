@@ -34,7 +34,7 @@ async def rsi() -> None:
 
         rsi_value = await rsi_check()
 
-        log('RSI value is {rsi_value}')
+        log(f'RSI value is {rsi_value}')
 
         if rsi_value > 70 or rsi_value < 30:
             await channel.send(f'RSI for SOL/USDT is {rsi_value}!')
@@ -50,7 +50,7 @@ async def on_ready() -> None:
     channel = client.get_channel(CHANNEL_ID)
 
     if channel:
-        log('Bot {client.user} is active now')
+        log(f'Bot {client.user} is active now')
     else:
         log('Channel not found')
 
