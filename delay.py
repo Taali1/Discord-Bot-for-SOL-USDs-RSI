@@ -10,7 +10,7 @@ async def get_time() -> int:
     async with aiohttp.ClientSession() as session:
         async with session.get(URL) as response:
             # Get time from response
-            data = response.json()
+            data = await response.json()
             time = data['result']['timeSecond']
 
     return int(time)
