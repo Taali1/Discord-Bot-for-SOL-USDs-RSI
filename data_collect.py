@@ -40,6 +40,4 @@ async def rsi_check() -> float:
     prices = await fetch_close_prices('SOLUSDT', 60, 100)
     rsi = await calculate_rsi(prices)
 
-    if rsi > 70 or rsi < 30:
-        return rsi
-    return None
+    return rsi
