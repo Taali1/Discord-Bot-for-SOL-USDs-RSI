@@ -15,6 +15,6 @@ def get_delay() -> int:
     server_time = get_time()
 
     # 3 600 seconds equals to 1 hour ofc
-    delay = 3601 - (server_time % 3600) # 3601 for assurance
+    delay = 3600 - (server_time % 3600) # 3600 will be enough considering additional delay in calculations
 
     return delay

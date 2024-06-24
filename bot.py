@@ -20,7 +20,7 @@ async def rsi():
     channel = client.get_channel(CHANNEL_ID)
     if channel:
         print('Checking rsi...')
-        rsi_value = rsi_check()
+        rsi_value = await rsi_check()
 
         if rsi_value is not None:
             print(f'RSI fits and its value is {rsi_value}')
