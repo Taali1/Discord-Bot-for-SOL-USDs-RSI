@@ -1,8 +1,8 @@
-import requests
 import pandas as pd
 from dotenv import load_dotenv
 import os
 import asyncio
+import aiohttp
 
 load_dotenv()
 BYBIT_API_KEY  = os.getenv('BYBIT_API_KEY')
@@ -17,12 +17,14 @@ async def fetch_close_prices(symbol: str = 'SOLUSDT', interval: int = 60, limit:
         'limit': limit
     }
     columns = ['Start time (ms)', 'Open', 'High', 'Low', 'Close', 'Volume', 'Turnover']
-    response = await requests.get(BYBIT_API_URL, params=params)
 
-    df = pd.DataFrame(response.json()['result']['list'], columns = columns)
-    data = df.Close.astype(float)
+    async with aiohttp.ClientSession() as session:
+        async with session.get(BYBIT_API_URL, params=params) as response:
+            data = await response.json()
+            df = pd.DataFrame(data['result']['list'], columns = columns)
+            prices = df.Close.astype(float)
 
-    return data
+    return prices
 
 # This took me some time to understand. I knew what RSI is but never calculated it
 async def calculate_rsi(prices, period: int = 14) -> float:
